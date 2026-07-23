@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ARTIC Market | Wholesale Registration</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2B9348',
+                        primaryDark: '#1E6F34',
+                        accent: '#F9A826',
+                        dark: '#222222'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'slow-pan': 'panImage 25s ease-in-out infinite alternate',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        panImage: {
+                            '0%': { transform: 'scale(1.05) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.15) translate(-2%, 2%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles for Animations & Polish -->
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Organic Curve Shadow Split */
+        .split-curve {
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.06);
+        }
+        @media (min-width: 768px) {
+            .split-curve {
+                box-shadow: -20px 0 50px rgba(0,0,0,0.08);
+            }
+        }
+
+        /* Fluid Entrance Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeUpAnim {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Number update micro-interaction */
+        .num-update {
+            animation: pop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            color: #2B9348 !important;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        /* Button hover shine effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            transition: all 0.6s ease;
+        }
+        .btn-shine:hover::after {
+            left: 200%;
+        }
+
+        /* Mobile specific adjustments to ensure no overflow and sticky works */
+        @media (max-width: 767px) {
+            .content-area {
+                padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 120px);
+            }
+        }
+    </style>
+</head>
+<body class="text-dark bg-white overflow-x-hidden">
+
+    <main class="flex flex-col md:flex-row min-h-[100dvh] w-full relative">
+        
+        <!-- ================= LEFT SIDE (VISUAL) ================= -->
+        <section class="relative w-full md:w-[45%] lg:w-[50%] h-[42vh] md:h-[100dvh] overflow-hidden flex-shrink-0 z-0 bg-gray-900">
+            <!-- Animated Background Image -->
+            <div class="absolute inset-0 w-full h-full">
+                <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center animate-slow-pan"></div>
+            </div>
+            
+            <!-- Dark Gradient Overlay for Readability & Premium feel -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/40 md:to-transparent z-10"></div>
+
+            <!-- Brand Logo (Top Left) -->
+            <div class="absolute top-6 left-6 md:top-10 md:left-10 z-20 flex items-center gap-2.5">
+                <div class="w-10 h-10 bg-primary/90 backdrop-blur-md rounded-xl flex items-center justify-center shadow-lg border border-white/10">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </div>
+                <span class="text-white font-heading font-bold text-xl tracking-tight drop-shadow-md">ARTIC Market</span>
+            </div>
+        </section>
+
+        <!-- ================= RIGHT SIDE (CONTENT) ================= -->
+        <section class="relative w-full md:w-[55%] lg:w-[50%] bg-white z-10 
+                        rounded-t-[40px] mt-[-40px] 
+                        md:rounded-tr-none md:rounded-bl-[50px] md:rounded-tl-[50px] md:mt-0 md:ml-[-50px] 
+                        split-curve flex flex-col justify-center">
+            
+            <div class="content-area max-w-[540px] mx-auto w-full px-6 pt-10 md:pt-12 md:px-16 lg:px-20 h-full flex flex-col justify-center">
+                
+                <!-- 1. Top Label -->
+                <div class="fade-up flex items-center mb-6" style="animation-delay: 0.1s;">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span class="text-sm font-semibold tracking-wide uppercase text-[13px]">Application</span>
+                    </div>
+                </div>
+
+                <!-- 2. Location -->
+                <div class="fade-up flex items-center gap-1.5 text-gray-500 mb-3" style="animation-delay: 0.2s;">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <span class="text-[15px] font-medium tracking-tight">Rajapalayam</span>
+                </div>
+
+                <!-- 3. Hero Heading -->
+                <h1 class="fade-up text-4xl md:text-5xl lg:text-[54px] font-heading font-bold text-dark leading-[1.1] mb-5 tracking-tight" style="animation-delay: 0.3s;">
+                    Wholesale<br>Registration
+                </h1>
+
+                <!-- 4. Subtext -->
+                <p class="fade-up text-gray-600 font-sans text-[17px] leading-relaxed mb-8" style="animation-delay: 0.4s;">
+                    Complete this short form to secure your lifetime wholesale access code for farm-fresh vegetables directly from growers.
+                </p>
+
+                <!-- 5. Micro Info -->
+                <div class="fade-up flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-8 p-4 bg-gray-50 rounded-2xl border border-gray-100" style="animation-delay: 0.5s;">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium text-gray-700">Takes ~10 seconds</span>
+                    </div>
+                    <div class="hidden sm:block w-px h-8 bg-gray-200"></div>
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-900">Limited access closes soon</span>
+                    </div>
+                </div>
+
+                <!-- 6. Live Counter -->
+                <div class="fade-up flex items-center gap-3 mb-10 md:mb-12" style="animation-delay: 0.6s;">
+                    <div class="flex -space-x-2">
+                        <img class="w-8 h-8 rounded-full border-2 border-white bg-gray-200" src="https://i.pravatar.cc/100?img=32" alt="User">
+                        <img class="w-8 h-8 rounded-full border-2 border-white bg-gray-200" src="https://i.pravatar.cc/100?img=12" alt="User">
+                        <img class="w-8 h-8 rounded-full border-2 border-white bg-gray-200" src="https://i.pravatar.cc/100?img=45" alt="User">
+                    </div>
+                    <p class="text-sm text-gray-600 font-medium">
+                        Join <span id="user-counter" class="inline-block font-bold text-dark transition-all duration-300">2,481</span> others registered
+                    </p>
+                </div>
+
+                <!-- 7. CTA Button (Sticky on Mobile) -->
+                <div class="fade-up fixed bottom-0 left-0 w-full p-4 bg-white/90 backdrop-blur-xl border-t border-gray-100 z-50 
+                            md:relative md:p-0 md:bg-transparent md:backdrop-blur-none md:border-none" 
+                     style="animation-delay: 0.7s;">
+                    <button class="w-full btn-shine bg-primary hover:bg-primaryDark text-white text-[17px] font-semibold py-4 px-8 rounded-2xl 
+                                   shadow-[0_10px_25px_rgba(43,147,72,0.3)] hover:shadow-[0_15px_30px_rgba(43,147,72,0.4)]
+                                   transform transition-all duration-200 active:scale-[0.98] hover:-translate-y-0.5 
+                                   flex justify-center items-center gap-2 group">
+                        Register Now
+                        <svg class="w-5 h-5 transform transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </button>
+                    <!-- Safe Area padding for iOS -->
+                    <div class="h-[env(safe-area-inset-bottom)] md:hidden"></div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript for Live Counter Micro-interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial count
+            let count = 2481;
+            const counterEl = document.getElementById('user-counter');
+            
+            // Randomly increment the counter to create urgency and social proof
+            setInterval(() => {
+                // 40% chance to increment every 3.5 seconds
+                if (Math.random() > 0.6) {
+                    const increment = Math.floor(Math.random() * 3) + 1;
+                    count += increment;
+                    
+                    // Format with comma
+                    counterEl.innerText = count.toLocaleString();
+                    
+                    // Trigger animation
+                    counterEl.classList.remove('num-update');
+                    // Force reflow
+                    void counterEl.offsetWidth;
+                    counterEl.classList.add('num-update');
+                }
+            }, 3500);
+        });
+    </script>
+</body>
+</html>
