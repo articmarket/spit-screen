@@ -69,7 +69,7 @@
         /* =========================================
            New Right Side UI Styles
            ========================================= */
-        .intro-stagger { opacity: 0; transform: translateY(15px); }
+        .intro-stagger { opacity: 0; } /* Removed transform here to allow true position:fixed without scroll-glitching */
 
         /* CTA Button - Dark theme for White Background */
         .cta-btn {
@@ -227,11 +227,11 @@
             gsap.set('#white-panel', { opacity: 0, y: 30 }); 
             gsap.set('.intro-stagger', { opacity: 0, y: 20 });
 
-            // 1. Slide in Main Card
-            tl.to('#white-panel', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out' }, 0.2);
+            // 1. Slide in Main Card (Clearing transform here allows fixed elements inside to stop scrolling with the document)
+            tl.to('#white-panel', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', clearProps: 'transform' }, 0.2);
             
-            // 2. Stagger content inside the card
-            tl.to('.intro-stagger', { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }, 0.5);
+            // 2. Stagger content inside the card (Clearing transform on stagger allows fixed items to stick to the viewport correctly)
+            tl.to('.intro-stagger', { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', clearProps: 'transform' }, 0.5);
             
             // 3. Counter Animation
             const countObj = { val: 0 };
