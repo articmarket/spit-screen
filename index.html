@@ -219,31 +219,40 @@
     </main>
 
     <!-- GSAP Animations Logic -->
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const tl = gsap.timeline();
+   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const tl = gsap.timeline();
+        const isMobile = window.matchMedia('(max-width: 767px)').matches;
 
-            // SETUP: Initial Hidden States
-            gsap.set('#white-panel', { opacity: 0, y: 30 }); 
-            gsap.set('.intro-stagger', { opacity: 0, y: 20 });
+        // Avoid transforming the parent on mobile: it contains the fixed CTA.
+        gsap.set('#white-panel', isMobile ? { opacity: 0 } : { opacity: 0, y: 30 });
+        gsap.set('.intro-stagger', { opacity: 0, y: 20 });
 
-            // 1. Slide in Main Card (Clearing transform here allows fixed elements inside to stop scrolling with the document)
-            tl.to('#white-panel', { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', clearProps: 'transform' }, 0.2);
-            
-            // 2. Stagger content inside the card (Clearing transform on stagger allows fixed items to stick to the viewport correctly)
-            tl.to('.intro-stagger', { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', clearProps: 'transform' }, 0.5);
-            
-            // 3. Counter Animation
-            const countObj = { val: 0 };
-            tl.to(countObj, { 
-                val: 2564, 
-                duration: 2.0, 
-                ease: "power3.out", 
-                onUpdate: function() { 
-                    document.getElementById('registered-count').innerText = Math.round(countObj.val).toLocaleString(); 
-                } 
-            }, 0.7);
-        });
-    </script>
+        tl.to(
+            '#white-panel',
+            isMobile
+                ? { opacity: 1, duration: 1.0, ease: 'power3.out' }
+                : { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', clearProps: 'transform' },
+            0.2
+        );
+
+        tl.to(
+            '.intro-stagger',
+            { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out', clearProps: 'transform' },
+            0.5
+        );
+
+        const countObj = { val: 0 };
+        tl.to(countObj, {
+            val: 2564,
+            duration: 2.0,
+            ease: "power3.out",
+            onUpdate: function() {
+                document.getElementById('registered-count').innerText =
+                    Math.round(countObj.val).toLocaleString();
+            }
+        }, 0.7);
+    });
+</script>
 </body>
-</html>
+</html>1
